@@ -3,9 +3,9 @@ import MainBody from './MainBody';
 
 function MainPage(){
     return(
-        <section className="MainPage">
-            HEY
-        </section>
+        <>
+            <MainBody />
+        </>
     );
 }
 

@@ -43,7 +43,16 @@ html, body, #root {
   background-color: black;
   color: white;
   font-weight: bolder;
-  font-size: 20px;
+  font-size: 24px;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+button{
+  border: 0px;
+  font-size: 24px;
+  font-family: 'Courier New', Courier, monospace;
+  color: white;
+  background-color: transparent;
 }
 
 .MainPage{
@@ -51,4 +60,55 @@ html, body, #root {
   align-items: center;
   align-content: center;
   text-align: center;
+}
+
+.MainBody{
+  height: 100%;
+  margin:auto;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+
+.MainCenterSection{
+  height:50%;
+  width: 50%;
+  margin:auto;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+}
+
+.ImageSequence{
+  float:left;
+  flex:left;
+  margin:100px;
+}
+
+.SectionSelector{
+  position: relative;
+  display: grid;
+  flex:right;
+  margin:100px;
+  width: 100%;
+  height: 25%;
+}
+.SectionSelector button{
+  text-align: left;
+  width: 200%;
+  transition:linear;
+  transition-duration: 0.1s;
+  font-weight:lighter;
+  /* border: 1px solid white; */
+  padding: 5%;
+}
+.SectionSelector button:hover{
+  /* width: 120%; */
+  text-indent: 10px;
+  transition:linear;
+  transition-duration: 0.1s;
+
 }
