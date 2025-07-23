@@ -2,6 +2,7 @@ import React from 'react';
 import GridItem from './GridItem';
 import iconDocument from './images/document.png';
 import iconGithub from './images/github-mark.png';
+import iconLinkedIn from './images/InBug-White.png';
 
 function MainBody(){
     return(
@@ -11,6 +12,7 @@ function MainBody(){
                 <section className="MainGrid">
                     <GridItem title="Github" image={iconGithub} link='https://github.com/cpinta' newTab={true} />
                     <GridItem title="Resume" image={iconDocument} imageStyle={{filter: 'invert(1)'}} imageAlt='Document icons created by Freepik - Flaticon' link='' />
+                    <GridItem title="LinkedIn" image={iconLinkedIn} link='https://www.linkedin.com/in/christian-pinta/' newTab={true} />
                 </section>
                 <section>
                     <p>
