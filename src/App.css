@@ -20,6 +20,20 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'Clear Sans Bold';
+  src: url('./fonts/ClearSans-Bold.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h1 {
+  font-family: 'Clear Sans Bold';
+  font-size: 8rem;
+  color: var(--header-text);
+  z-index: 1;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -44,11 +58,19 @@
   }
 }
 
+:root{
+  --main-accent: #373f51;
+  --main-accent2: #89043d;
+  --main-bg: #2a4494;
+  --header-text: white;
+  --main-text: #5da9e9;
+}
+
 html, body, #root {
   height: 100%;
   margin: 0;
   background-color: black;
-  color: white;
+  color: var(--main-text);
   font-weight: bold;
   font-size: 24px;
   font-family: 'Clear Sans', Arial, sans-serif;
@@ -57,7 +79,7 @@ html, body, #root {
 button{
   border: 0px;
   font-size: 24px;
-  color: white;
+  color: var(--main-text);
   background-color: transparent;
 }
 
@@ -69,18 +91,26 @@ button{
 }
 
 .MainBody{
-  height: 50%;
+  height: 10rem;
   margin: auto;
-  align-content: center;
+  align-content: start;
   text-align: center;
-  background-color: blue;
+  background-color: var(--main-accent);
   width: 80%;
   border-radius: 5rem;
-  position: absolute;
-  top: 25%;
-  left: 10%;
+  position: inherit;
   box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.38);
+  padding:2rem;
+  margin-top: 1rem;
+  z-index: 1;
 }
+
+.MainBodyTitle{
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.MainBodyItem{}
 
 .MainCenterSection{
   height:50%;
@@ -99,44 +129,49 @@ button{
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
-  background-color: #ed2896;
+  z-index: -2;
+  background-color: var(--main-bg);
+  display: grid;
+  text-align: center;
 }
 
 .MainGrid{
   display: inline-flex;
-  height: 20rem;
+  height: 10rem;
+  width: 20rem;
+  justify-content: space-between
 }
 
 .MainGridItem{
-  height: 4rem;
+  height: 3rem;
   width: auto;
   /* background-color: #282c34; */
   background-color: #00000027;
   border-radius: 2rem;
-  margin: auto 10px;
-  padding: 2rem;
+  margin: auto;
+  padding: 1rem;
   transition: 0.2s;
-  overflow: hidden;
 }
   .MainGridItem img {
     height: 100%;
     transition: 0.2s;
   }
   .MainGridItem p {
-    color: white;
+    color: var(--main-text);
     text-align: center;
     margin-top: 0rem;
     transition: 0.2s;
+    font-size: 1rem;
+    text-decoration: none; 
   }
 
 
 .MainGridItem:hover {
   filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.5));
-  box-shadow: 0 0px 16px rgba(0, 0, 0, 0.5);
+  /* box-shadow: 0 0px 16px rgba(0, 0, 0, 0.5); */
   background-color: #0000003f;
   /* padding: 2.5rem; */
-  height: 6rem;
+  height: 3.25rem;
 }
 
 .MainGridItem:hover img {
