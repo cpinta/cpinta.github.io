@@ -8,10 +8,11 @@ type BGStarsProps = {
     x_max: number,
     y_min: number,
     y_max: number,
+    seed?: number
 }
 
 
-function BGStars({x_min, x_max, y_min, y_max}: BGStarsProps){
+function BGStars({x_min, x_max, y_min, y_max, seed}: BGStarsProps){
 
     const starParent = useRef<HTMLDivElement>(null);
     const X_MAX = x_max;
@@ -20,6 +21,8 @@ function BGStars({x_min, x_max, y_min, y_max}: BGStarsProps){
     const Y_MIN = y_min;
 
     var starCount = 0;
+    // make algorithm that adds spacing in between stars
+    var starSpace = 100;
     
     const [stars, setStars] = useState<React.ReactElement[]>([]);
 
@@ -43,8 +46,11 @@ function BGStars({x_min, x_max, y_min, y_max}: BGStarsProps){
     //4
     //80085
 
-    var seed = 9;
+    var defaultSeed = 4;
     function random() {
+        if(!seed) {
+            seed = defaultSeed;
+        }
         var x = Math.sin(seed++) * 10000;
         return x - Math.floor(x);
     }
@@ -54,7 +60,7 @@ function BGStars({x_min, x_max, y_min, y_max}: BGStarsProps){
     }, []);
 
     return(
-        <section id='starParent' ref={starParent} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
+        <section id='starParent' ref={starParent} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -5 }}>
             {stars}
         </section>
     )

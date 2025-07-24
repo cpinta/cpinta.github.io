@@ -64,16 +64,20 @@ h1 {
   --main-bg: #2a4494;
   --header-text: white;
   --main-text: #5da9e9;
+
+  --width-percent: 80%;
 }
 
 html, body, #root {
   height: 100%;
   margin: 0;
-  background-color: black;
+  background-color: var(--main-bg);
   color: var(--main-text);
   font-weight: bold;
   font-size: 24px;
   font-family: 'Clear Sans', Arial, sans-serif;
+  z-index: -10;
+  position: relative;
 }
 
 button{
@@ -90,54 +94,29 @@ button{
   text-align: center;
 }
 
-.MainBody{
-  height: 10rem;
+.TinyPromoBubblesParent{
+  height: auto;
   margin: auto;
-  align-content: start;
   text-align: center;
-  background-color: var(--main-accent);
-  width: 80%;
-  border-radius: 5rem;
-  position: inherit;
-  box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.38);
-  padding:2rem;
-  margin-top: 1rem;
-  z-index: 1;
+  width: var(--width-percent);
 }
 
-.MainBodyTitle{
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.MainBodyItem{}
-
-.MainCenterSection{
-  height:50%;
-  width: 50%;
-  margin:auto;
-  align-items: center;
+.TinyPromoBubbles{
+  height: 5.5rem;
+  margin: auto;
   align-content: center;
   text-align: center;
-  flex-direction: row;
-  display: flex;
-  justify-content: center;
-}
-
-.Background{
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -2;
-  background-color: var(--main-bg);
-  display: grid;
-  text-align: center;
+  background-color: var(--main-accent);
+  border-radius: 4rem;
+  position: inherit;
+  box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.38);
+  padding:1rem;
+  width: min-content;
 }
 
 .MainGrid{
   display: inline-flex;
-  height: 10rem;
+  height: auto;
   width: 20rem;
   justify-content: space-between
 }
@@ -185,6 +164,50 @@ button{
   padding: 1.8rem;
   transition: 0.1s;
 }
+
+.MainBody{
+  height: 10rem;
+  margin: auto;
+  align-content: start;
+  text-align: center;
+  background-color: var(--main-accent);
+  width: var(--width-percent);
+  border-radius: 5rem;
+  position: inherit;
+  box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.38);
+  padding:2rem;
+  margin-top: 1rem;
+  z-index: 1;
+}
+
+.MainBodyTitle{
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.MainBodyItem{}
+
+.MainCenterSection{
+  height:50%;
+  width: 50%;
+  margin:auto;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  flex-direction: row;
+  display: flex;
+  justify-content: center;
+}
+
+.Background{
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  text-align: center;
+}
+
 
 .ImageSequence{
   float:left;
