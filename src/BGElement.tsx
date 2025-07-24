@@ -7,9 +7,10 @@ type BGElementProps = {
     y: number;
     scrollSpeed?: number;
     image?: string;
+    style?: React.CSSProperties;
 };
 
-function BGElement({id, image, x, y, scrollSpeed}: BGElementProps) {
+function BGElement({id, image, x, y, scrollSpeed, style}: BGElementProps) {
     
     const floaterRef = useRef<HTMLDivElement>(null);
     
@@ -26,7 +27,7 @@ function BGElement({id, image, x, y, scrollSpeed}: BGElementProps) {
 
     return(
         <div id={id} ref={floaterRef} style={{top: y, left: x, position: 'absolute'}}>
-            <img src={image} />
+            <img src={image} style={style} />
         </div>
     )
 }

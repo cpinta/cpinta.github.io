@@ -24,9 +24,12 @@ function BGStars({x_min, x_max, y_min, y_max}: BGStarsProps){
     const [stars, setStars] = useState<React.ReactElement[]>([]);
 
     function spawnStar(){
-        var randx = Math.random() * (X_MAX - X_MIN) + X_MIN;
-        var randy = Math.random() * (Y_MAX - Y_MIN) + Y_MIN
-        return <BGElement key={'star'+starCount} id={'star'+starCount} image={imgStar} x={randx} y={randy} scrollSpeed={3}  />
+        var randx = random() * (X_MAX - X_MIN) + X_MIN
+        var randy = random() * (Y_MAX - Y_MIN) + Y_MIN
+        var randXScale = random() > 0.5 ? 1 : -1;
+        var randYScale = random() > 0.5 ? 1 : -1;
+
+        return <BGElement key={'star'+starCount} id={'star'+starCount} image={imgStar} x={randx} y={randy} scrollSpeed={3} style={{transform: `scale(${randXScale}, ${randYScale})`}}  />
     }
 
     function spawnStars(count: number) {
@@ -35,6 +38,15 @@ function BGStars({x_min, x_max, y_min, y_max}: BGStarsProps){
             newStars.push(spawnStar());
         }
         setStars(newStars)
+    }
+
+    //4
+    //80085
+
+    var seed = 9;
+    function random() {
+        var x = Math.sin(seed++) * 10000;
+        return x - Math.floor(x);
     }
 
     useEffect(() => {
