@@ -32,6 +32,8 @@ function BGStars({x_min, x_max, y_min, y_max, seed}: BGStarsProps){
         var randXScale = random() > 0.5 ? 1 : -1;
         var randYScale = random() > 0.5 ? 1 : -1;
 
+        starCount++;
+
         return <BGElement key={'star'+starCount} id={'star'+starCount} image={imgStar} x={randx} y={randy} scrollSpeed={3} style={{transform: `scale(${randXScale}, ${randYScale})`}}  />
     }
 

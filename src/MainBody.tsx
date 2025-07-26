@@ -13,7 +13,7 @@ import BGStars from './BGStars';
 function MainBody(){
     return(
         <section className='Background'>
-            <BGStars x_min={0} x_max={window.screenX} y_min={0} y_max={window.document.body.offsetHeight} />
+            <BGStars x_min={0} x_max={window.innerWidth} y_min={0} y_max={Math.max(document.body.scrollHeight, document.documentElement.scrollHeight)} />
             <h1 className='MainBodyTitle'>Christian Pinta</h1>
             <div>
                 <div className='TinyPromoBubblesParent'>
