@@ -48,7 +48,7 @@ function BGStars({x_min, x_max, y_min, y_max, seed}: BGStarsProps){
     //4
     //80085
 
-    var defaultSeed = 4;
+    var defaultSeed = 1;
     function random() {
         if(!seed) {
             seed = defaultSeed;
@@ -58,7 +58,7 @@ function BGStars({x_min, x_max, y_min, y_max, seed}: BGStarsProps){
     }
 
     useEffect(() => {
-        spawnStars(100);
+        spawnStars(50);
     }, []);
 
     return(

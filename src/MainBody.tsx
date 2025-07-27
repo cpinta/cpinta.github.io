@@ -6,9 +6,11 @@ import iconGithub from './images/github-mark.png';
 import iconLinkedIn from './images/InBug-White.png';
 
 import imgStar from './images/star.png';
+import imgPintoBoy from './images/pintoboy.png';
 
 import BGElement from './BGElement';
 import BGStars from './BGStars';
+import ProjectListEntry from './ProjectListEntry';
 
 function MainBody(){
     return(
@@ -17,8 +19,8 @@ function MainBody(){
             <h1 className='MainBodyTitle'>Christian Pinta</h1>
             <div>
                 <div className='TinyPromoBubblesParent'>
-                    <div className="TinyPromoBubbles" style={{float: 'left'}}>
-                        <div className="MainGrid" >
+                    <div className="TinyPromoBubbles" style={{float: 'left', height: '3rem'}}>
+                        <div className="MainGrid" style={{width: '15rem'}} >
                             <GridItem title="Github" image={iconGithub} link='https://github.com/cpinta' newTab={true} />
                             <GridItem title="LinkedIn" image={iconLinkedIn} link='https://www.linkedin.com/in/christian-pinta/' newTab={true} />
                             <GridItem title="Resume" image={iconDocument} imageStyle={{filter: 'invert(1)'}} imageAlt='Document icons created by Freepik - Flaticon' link='' />
@@ -26,9 +28,8 @@ function MainBody(){
                     </div>
                 </div>
                 <div className="MainBody">
-                    <div>
-                        {/* <BGElement image={imgStar} x={100} y={1000} scrollSpeed={3}  /> */}
-                    </div>
+                    <h2>Projects</h2>
+                    <ProjectListEntry title='PintoBoy' image={imgPintoBoy} descrption='Programmed, 3D modeled, and textured An item for the game Lethal Company. The item was published on a public modding website where I received and responded to feedback. The item has amassed over 800,000 downloads' />
                 </div>
             </div>
         </section>

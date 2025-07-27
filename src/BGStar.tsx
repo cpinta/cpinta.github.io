@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import GridItem from './GridItem';
 
 type BGElementProps = {
@@ -10,10 +10,10 @@ type BGElementProps = {
     style?: React.CSSProperties;
 };
 
-
-function BGElement({id, image, x, y, scrollSpeed, style}: BGElementProps) {
+function BGStar({id, image, x, y, scrollSpeed, style}: BGElementProps) {
     
     const floaterRef = useRef<HTMLDivElement>(null);
+    const [isHovered, setIsHovered] = useState(false);
     
     useEffect(() => {
         function parallax() {
@@ -28,10 +28,11 @@ function BGElement({id, image, x, y, scrollSpeed, style}: BGElementProps) {
 
     return(
         <div id={id} ref={floaterRef} style={{top: y, left: x, position: 'absolute'}}>
-            <img src={image} style={style} />
+            <img src={image} style={style} onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)} />
         </div>
     )
 }
 
 
-export default BGElement;
+export default BGStar;

@@ -34,6 +34,34 @@ h1 {
   z-index: 1;
 }
 
+h2 {
+  color:var(--header-text);
+  margin: 0;
+}
+
+h3{
+  margin: 0;
+}
+
+.table-title{
+  font-weight: bold;
+  text-align: left;
+}
+
+.table-title h1,h2,h3{
+  margin-bottom: 0.5rem;
+}
+
+.table-desc{
+  text-align: left;
+  vertical-align: top;
+}
+
+p{
+  margin:0;
+  font-weight: normal;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -102,12 +130,11 @@ button{
 }
 
 .TinyPromoBubbles{
-  height: 5.5rem;
   margin: auto;
   align-content: center;
   text-align: center;
   background-color: var(--main-accent);
-  border-radius: 4rem;
+  border-radius: 3rem;
   position: inherit;
   box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.38);
   padding:1rem;
@@ -116,20 +143,22 @@ button{
 
 .MainGrid{
   display: inline-flex;
-  height: auto;
-  width: 20rem;
-  justify-content: space-between
+  height: 3rem;
+  justify-content: space-between;
+  text-decoration: none;
 }
 
 .MainGridItem{
-  height: 3rem;
+  vertical-align: middle;
+  height: 1.5rem;
   width: auto;
   /* background-color: #282c34; */
   background-color: #00000027;
   border-radius: 2rem;
   margin: auto;
-  padding: 1rem;
+  padding: 0.5rem;
   transition: 0.2s;
+  text-decoration: none;
 }
   .MainGridItem img {
     height: 100%;
@@ -150,7 +179,7 @@ button{
   /* box-shadow: 0 0px 16px rgba(0, 0, 0, 0.5); */
   background-color: #0000003f;
   /* padding: 2.5rem; */
-  height: 3.25rem;
+  height: 1.75rem;
 }
 
 .MainGridItem:hover img {
@@ -161,7 +190,7 @@ button{
 
 .MainGridItem:active {
   background-color: #00000050;
-  padding: 1.8rem;
+  padding: 0.25rem;
   transition: 0.1s;
 }
 
@@ -172,7 +201,7 @@ button{
   text-align: center;
   background-color: var(--main-accent);
   width: var(--width-percent);
-  border-radius: 5rem;
+  border-radius: 2rem;
   position: inherit;
   box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.38);
   padding:2rem;
