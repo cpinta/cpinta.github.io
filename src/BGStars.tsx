@@ -62,7 +62,7 @@ function BGStars({x_min, x_max, y_min, y_max, seed}: BGStarsProps){
     }, []);
 
     return(
-        <section id='starParent' ref={starParent} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: -5 }}>
+        <section id='starParent' ref={starParent} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
             {stars}
         </section>
     )
