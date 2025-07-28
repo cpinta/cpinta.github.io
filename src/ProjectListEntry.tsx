@@ -13,19 +13,21 @@ function ProjectListEntry({title, image, descrption, link}: ProjectListEntryProp
 
     return(
         <table>
-            <tr>
-                <td className='table-title' colSpan={2}>
-                    <h2>{title}</h2>
-                </td>
-            </tr>
-            <tr>
-                <td>     
-                    <img src={image} alt={title} style={{width: 'auto', height: '5rem'}} />
-                </td>
-                <td className='table-desc'>
-                    <p>{descrption}</p>
-                </td>
-            </tr>
+            <tbody>
+                <tr>
+                    <td className='table-title' colSpan={2}>
+                        <h2>{title}</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>     
+                        <img src={image} alt={title} style={{width: 'auto', height: '5rem'}} />
+                    </td>
+                    <td className='table-desc'>
+                        <p>{descrption}</p>
+                    </td>
+                </tr>
+            </tbody>
         </table>
     )
 }
