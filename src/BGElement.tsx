@@ -20,15 +20,17 @@ function BGElement({id, image, x, y, scrollSpeed, style}: BGElementProps) {
     var prevY = useRef<number>(0);
     var spinSpeed = useRef<number>(0);
 
-    var updateEvery: number = 100
+    var fps: number = 20
+    var updateEvery: number = 1000 / fps;
     const currentTime = useRef<number>(0);
+    var rotat = useRef<number>(0);
     const [rotation, setRotation] = useState(0);
-    const spinSlowdown: number = 0.1
-    const spinMultiplier: number = 5
+    const spinSlowdown: number = 0.001
+    const spinMultiplier: number = 0.01
 
     function animate(deltaTime: number) {
-
         
+
     }
         
     
@@ -45,15 +47,22 @@ function BGElement({id, image, x, y, scrollSpeed, style}: BGElementProps) {
             var deltaTime: number = updateEvery
             
             spinSpeed.current -= spinSlowdown * deltaTime
-            console.log("spinspeed: ", spinSpeed.current, " rotation:", rotation)
-            setRotation(rotation + spinSpeed.current)
+            if(id == 'star77'){
+                console.log("spinspeed: ", spinSpeed.current, " rotation:", rotation)
+            }
+
+            // whenever I read rotation in this function, it is always 0
+
 
             if(spinSpeed.current < 0){
                 spinSpeed.current = 0
                 prevIsValid.current = false
                 return
             }
-        }, 32);
+            rotat.current += spinSpeed.current
+
+            setRotation(rotat.current)
+        }, updateEvery);
         
 
         return () => window.removeEventListener("scroll", parallax);
@@ -70,6 +79,7 @@ function BGElement({id, image, x, y, scrollSpeed, style}: BGElementProps) {
             var distance = Math.pow(diffx, 2) + Math.pow(diffy, 2)
 
             spinSpeed.current = distance * spinMultiplier
+            console.log("distance: ", distance, " spinSpeed: ", spinSpeed.current)
         }
         else{
             prevX.current = x
