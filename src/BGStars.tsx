@@ -23,7 +23,7 @@ function BGStars({x_min, x_max, y_min, y_max, seed}: BGStarsProps){
     var starCount = 0;
     // make algorithm that adds spacing in between stars
     var starSpace = 100;
-    var scrollSpeedDiffBetweenStarLayers = 1;
+    var scrollSpeedDiffBetweenStarLayers = 2;
     var scrollLayerCount = 3;
     
     const [stars, setStars] = useState<React.ReactElement[]>([]);
@@ -37,7 +37,11 @@ function BGStars({x_min, x_max, y_min, y_max, seed}: BGStarsProps){
 
         var opacity = 100 * ((layer)/scrollLayerCount)
 
-        
+        if (layer == 3){
+            if(random() < 0.1){
+                layer = 10;
+            }
+        }
 
         starCount++;
 
@@ -69,7 +73,7 @@ function BGStars({x_min, x_max, y_min, y_max, seed}: BGStarsProps){
     }, []);
 
     return(
-        <section id='starParent' ref={starParent} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0 }}>
+        <section id='starParent' ref={starParent} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}>
             {stars}
         </section>
     )
