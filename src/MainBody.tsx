@@ -6,7 +6,8 @@ import iconGithub from './images/github-mark.png';
 import iconLinkedIn from './images/InBug-White.png';
 
 import imgStar from './images/star.png';
-import imgPintoBoy from './images/pintoboy.png';
+import imgPintoBoy from './images/pintoboy.gif';
+import gifPintoBoy from './images/pintoboy_anim.gif';
 
 import BGElement from './BGElement';
 import BGStars from './BGStars';
@@ -16,7 +17,6 @@ function MainBody(){
     console.log(document.documentElement.getBoundingClientRect().height);
     return(
         <section className='Background'>
-            <BGStars x_min={0} x_max={window.innerWidth} y_min={0} y_max={Math.max(3600)} />
             <div style={{zIndex: 5, pointerEvents: 'none'}}>
                 <h1 className='MainBodyTitle'>Christian Pinta</h1>
                 <div className='TinyPromoBubblesParent'>
@@ -28,17 +28,19 @@ function MainBody(){
                         </div>
                     </div>
                 </div>
-                <div className="MainBody">
+                <div className="ProjectBody">
                     <h2>Projects</h2>
-                    <ProjectListEntry title='PintoBoy' image={imgPintoBoy} descrption='Programmed, 3D modeled, and textured An item for the game Lethal Company. The item was published on a public modding website where I received and responded to feedback. The item has amassed over 800,000 downloads' />
-                    <ProjectListEntry title='PintoBoy' image={imgPintoBoy} descrption='Programmed, 3D modeled, and textured An item for the game Lethal Company. The item was published on a public modding website where I received and responded to feedback. The item has amassed over 800,000 downloads' />
-                    <ProjectListEntry title='PintoBoy' image={imgPintoBoy} descrption='Programmed, 3D modeled, and textured An item for the game Lethal Company. The item was published on a public modding website where I received and responded to feedback. The item has amassed over 800,000 downloads' />
-                    <ProjectListEntry title='PintoBoy' image={imgPintoBoy} descrption='Programmed, 3D modeled, and textured An item for the game Lethal Company. The item was published on a public modding website where I received and responded to feedback. The item has amassed over 800,000 downloads' />
-                    <ProjectListEntry title='PintoBoy' image={imgPintoBoy} descrption='Programmed, 3D modeled, and textured An item for the game Lethal Company. The item was published on a public modding website where I received and responded to feedback. The item has amassed over 800,000 downloads' />
-                    <ProjectListEntry title='PintoBoy' image={imgPintoBoy} descrption='Programmed, 3D modeled, and textured An item for the game Lethal Company. The item was published on a public modding website where I received and responded to feedback. The item has amassed over 800,000 downloads' />
-                
+                    <ProjectListEntry title='PintoBoy' subtitle='C#' image={imgPintoBoy} hover={gifPintoBoy} descrption='Programmed, 3D modeled, and textured An item for the game Lethal Company. The item was published on a public modding website where I received and responded to feedback. The item has amassed over 800,000 downloads' />
+                    <ProjectListEntry title='PintoBoy' subtitle='C#' image={imgPintoBoy} hover={gifPintoBoy} descrption='Programmed, 3D modeled, and textured An item for the game Lethal Company. The item was published on a public modding website where I received and responded to feedback. The item has amassed over 800,000 downloads' />
+                    <ProjectListEntry title='PintoBoy' subtitle='C#' image={imgPintoBoy} hover={gifPintoBoy} descrption='Programmed, 3D modeled, and textured An item for the game Lethal Company. The item was published on a public modding website where I received and responded to feedback. The item has amassed over 800,000 downloads' />
+                    <ProjectListEntry title='PintoBoy' subtitle='C#' image={imgPintoBoy} hover={gifPintoBoy} descrption='Programmed, 3D modeled, and textured An item for the game Lethal Company. The item was published on a public modding website where I received and responded to feedback. The item has amassed over 800,000 downloads' />
+                    <ProjectListEntry title='PintoBoy' subtitle='C#' image={imgPintoBoy} hover={gifPintoBoy} descrption='Programmed, 3D modeled, and textured An item for the game Lethal Company. The item was published on a public modding website where I received and responded to feedback. The item has amassed over 800,000 downloads' />
+                    <ProjectListEntry title='PintoBoy' subtitle='C#' image={imgPintoBoy} hover={gifPintoBoy} descrption='Programmed, 3D modeled, and textured An item for the game Lethal Company. The item was published on a public modding website where I received and responded to feedback. The item has amassed over 800,000 downloads' />
+                    <ProjectListEntry title='PintoBoy' subtitle='C#' image={imgPintoBoy} hover={gifPintoBoy} descrption='Programmed, 3D modeled, and textured An item for the game Lethal Company. The item was published on a public modding website where I received and responded to feedback. The item has amassed over 800,000 downloads' />
+                    
                 </div>
             </div>
+            <BGStars x_min={0} x_max={window.innerWidth} y_min={0} y_max={Math.max(3600)} />
         </section>
     )
 }

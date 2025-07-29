@@ -14,8 +14,6 @@ type BGElementProps = {
 function BGElement({id, image, x, y, scrollSpeed, startRotation = 0, starStyle}: BGElementProps) {
     
     const floaterRef = useRef<HTMLDivElement>(null);
-    const imgRef = useRef<HTMLDivElement>(null);
-    var prevTime: number;
 
     var prevIsValid = useRef<boolean>(false);
     var prevX = useRef<number>(0);
@@ -50,9 +48,6 @@ function BGElement({id, image, x, y, scrollSpeed, startRotation = 0, starStyle}:
             
             spinSpeed.current -= spinSlowdown * deltaTime
 
-            // whenever I read rotation in this function, it is always 0
-
-
             if(spinSpeed.current < 0){
                 spinSpeed.current = 0
                 prevIsValid.current = false
@@ -61,9 +56,6 @@ function BGElement({id, image, x, y, scrollSpeed, startRotation = 0, starStyle}:
             rotat.current += spinSpeed.current
 
             setRotation(rotat.current)
-            if(id == 'star888'){
-                console.log("spinspeed: ", spinSpeed.current, " rotation:", rotation)
-            }
         }, updateEvery);
         
 
@@ -81,7 +73,6 @@ function BGElement({id, image, x, y, scrollSpeed, startRotation = 0, starStyle}:
             var distance = Math.pow(diffx, 2) + Math.pow(diffy, 2)
 
             spinSpeed.current = distance * spinMultiplier
-            console.log("distance: ", distance, " spinSpeed: ", spinSpeed.current)
         }
         else{
             prevX.current = x
