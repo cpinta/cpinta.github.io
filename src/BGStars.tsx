@@ -23,6 +23,8 @@ function BGStars({x_min, x_max, y_min, y_max, seed}: BGStarsProps){
     var starCount = 0;
     // make algorithm that adds spacing in between stars
     var starSpace = 100;
+    var scrollSpeedDiffBetweenStarLayers = 1;
+    var scrollLayerCount = 3;
     
     const [stars, setStars] = useState<React.ReactElement[]>([]);
 
@@ -30,10 +32,16 @@ function BGStars({x_min, x_max, y_min, y_max, seed}: BGStarsProps){
         var randx = random() * (X_MAX - X_MIN) + X_MIN
         var randy = random() * (Y_MAX - Y_MIN) + Y_MIN
         var randRotation = (random() * 3) * 90;
+        var layer = Math.trunc((random() * scrollLayerCount) + 1);
+        var scrollSpeed = layer * scrollSpeedDiffBetweenStarLayers;
+
+        var opacity = 100 * ((layer)/scrollLayerCount)
+
+        
 
         starCount++;
 
-        return <BGElement key={'star'+starCount} id={'star'+starCount} image={imgStar} x={randx} y={randy} scrollSpeed={3} startRotation={randRotation} style={{rotate: randRotation + 'deg'}}  />
+        return <BGElement key={'star'+starCount} id={'star'+starCount} image={imgStar} x={randx} y={randy} scrollSpeed={scrollSpeed} startRotation={randRotation} style={{rotate: randRotation + 'deg', opacity: opacity + `%`, zIndex: layer}}  />
     }
 
     function spawnStars(count: number) {
@@ -57,7 +65,7 @@ function BGStars({x_min, x_max, y_min, y_max, seed}: BGStarsProps){
     }
 
     useEffect(() => {
-        spawnStars(50);
+        spawnStars(500);
     }, []);
 
     return(

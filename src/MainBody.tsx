@@ -13,10 +13,11 @@ import BGStars from './BGStars';
 import ProjectListEntry from './ProjectListEntry';
 
 function MainBody(){
+    console.log(document.documentElement.getBoundingClientRect().height);
     return(
         <section className='Background'>
-            <BGStars x_min={0} x_max={window.innerWidth} y_min={0} y_max={Math.max(document.body.scrollHeight, document.documentElement.scrollHeight)} />
-            <div style={{zIndex: 1, pointerEvents: 'none'}}>
+            <BGStars x_min={0} x_max={window.innerWidth} y_min={0} y_max={Math.max(3600)} />
+            <div style={{zIndex: 5, pointerEvents: 'none'}}>
                 <h1 className='MainBodyTitle'>Christian Pinta</h1>
                 <div className='TinyPromoBubblesParent'>
                     <div className="TinyPromoBubbles" style={{float: 'left', height: '3rem'}}>
@@ -30,6 +31,12 @@ function MainBody(){
                 <div className="MainBody">
                     <h2>Projects</h2>
                     <ProjectListEntry title='PintoBoy' image={imgPintoBoy} descrption='Programmed, 3D modeled, and textured An item for the game Lethal Company. The item was published on a public modding website where I received and responded to feedback. The item has amassed over 800,000 downloads' />
+                    <ProjectListEntry title='PintoBoy' image={imgPintoBoy} descrption='Programmed, 3D modeled, and textured An item for the game Lethal Company. The item was published on a public modding website where I received and responded to feedback. The item has amassed over 800,000 downloads' />
+                    <ProjectListEntry title='PintoBoy' image={imgPintoBoy} descrption='Programmed, 3D modeled, and textured An item for the game Lethal Company. The item was published on a public modding website where I received and responded to feedback. The item has amassed over 800,000 downloads' />
+                    <ProjectListEntry title='PintoBoy' image={imgPintoBoy} descrption='Programmed, 3D modeled, and textured An item for the game Lethal Company. The item was published on a public modding website where I received and responded to feedback. The item has amassed over 800,000 downloads' />
+                    <ProjectListEntry title='PintoBoy' image={imgPintoBoy} descrption='Programmed, 3D modeled, and textured An item for the game Lethal Company. The item was published on a public modding website where I received and responded to feedback. The item has amassed over 800,000 downloads' />
+                    <ProjectListEntry title='PintoBoy' image={imgPintoBoy} descrption='Programmed, 3D modeled, and textured An item for the game Lethal Company. The item was published on a public modding website where I received and responded to feedback. The item has amassed over 800,000 downloads' />
+                
                 </div>
             </div>
         </section>

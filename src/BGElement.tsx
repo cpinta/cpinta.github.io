@@ -14,6 +14,7 @@ type BGElementProps = {
 function BGElement({id, image, x, y, scrollSpeed, startRotation = 0, style}: BGElementProps) {
     
     const floaterRef = useRef<HTMLDivElement>(null);
+    const imgRef = useRef<HTMLDivElement>(null);
     var prevTime: number;
 
     var prevIsValid = useRef<boolean>(false);
@@ -94,8 +95,8 @@ function BGElement({id, image, x, y, scrollSpeed, startRotation = 0, style}: BGE
     }
 
     return(
-        <div id={id} ref={floaterRef} style={{top: y, left: x, position: 'absolute', rotate: `${rotation}deg`}} onClick={() => setRotation(Math.random() * 180)} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
-            <img src={image} style={style} />
+        <div id={id} ref={floaterRef} style={{top: y, left: x, position: 'absolute'}} onClick={() => setRotation(Math.random() * 180)} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+            <img src={image} style={style || {rotate: `${rotation}deg`}} />
         </div>
     )
 }

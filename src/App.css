@@ -97,7 +97,7 @@ p{
 }
 
 html, body, #root {
-  height: 100%;
+  height: 1800px;
   margin: 0;
   background-color: var(--main-bg);
   color: var(--main-text);
@@ -195,7 +195,7 @@ button{
 }
 
 .MainBody{
-  height: 10rem;
+  height: auto;
   margin: auto;
   align-content: start;
   text-align: center;
@@ -232,7 +232,7 @@ button{
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 1000%;
   display: grid;
   text-align: center;
 }
