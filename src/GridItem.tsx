@@ -14,7 +14,7 @@ type GridItemProps = {
 function GridItem({ title, link, image, imageAlt, imageStyle, tooltip, attribution, newTab }: GridItemProps){
     return(
         
-        <a className="MainGridItem" href={link} {...(newTab ? { target: "_blank", rel: "noopener noreferrer" } : {})} >
+        <a className="MainGridItem" style={{ pointerEvents: 'all' }} href={link} {...(newTab ? { target: "_blank", rel: "noopener noreferrer" } : {})} >
             <img src={image} style={imageStyle} />
             <p>{title}</p>
             {attribution && (

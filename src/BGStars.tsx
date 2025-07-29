@@ -29,12 +29,11 @@ function BGStars({x_min, x_max, y_min, y_max, seed}: BGStarsProps){
     function spawnStar(){
         var randx = random() * (X_MAX - X_MIN) + X_MIN
         var randy = random() * (Y_MAX - Y_MIN) + Y_MIN
-        var randXScale = random() > 0.5 ? 1 : -1;
-        var randYScale = random() > 0.5 ? 1 : -1;
+        var randRotation = (random() * 3) * 90;
 
         starCount++;
 
-        return <BGElement key={'star'+starCount} id={'star'+starCount} image={imgStar} x={randx} y={randy} scrollSpeed={3} style={{transform: `scale(${randXScale}, ${randYScale})`}}  />
+        return <BGElement key={'star'+starCount} id={'star'+starCount} image={imgStar} x={randx} y={randy} scrollSpeed={3} startRotation={randRotation} style={{rotate: randRotation + 'deg'}}  />
     }
 
     function spawnStars(count: number) {

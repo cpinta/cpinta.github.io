@@ -5,12 +5,13 @@ type BGElementProps = {
     x: number;
     y: number;
     scrollSpeed?: number;
+    startRotation?: number;
     image?: string;
     style?: React.CSSProperties;
 };
 
 
-function BGElement({id, image, x, y, scrollSpeed, style}: BGElementProps) {
+function BGElement({id, image, x, y, scrollSpeed, startRotation = 0, style}: BGElementProps) {
     
     const floaterRef = useRef<HTMLDivElement>(null);
     var prevTime: number;
@@ -23,8 +24,8 @@ function BGElement({id, image, x, y, scrollSpeed, style}: BGElementProps) {
     var fps: number = 20
     var updateEvery: number = 1000 / fps;
     const currentTime = useRef<number>(0);
-    var rotat = useRef<number>(0);
-    const [rotation, setRotation] = useState(0);
+    var rotat = useRef<number>(startRotation);
+    const [rotation, setRotation] = useState(startRotation);
     const spinSlowdown: number = 0.001
     const spinMultiplier: number = 0.01
 

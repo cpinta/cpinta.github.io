@@ -16,8 +16,8 @@ function MainBody(){
     return(
         <section className='Background'>
             <BGStars x_min={0} x_max={window.innerWidth} y_min={0} y_max={Math.max(document.body.scrollHeight, document.documentElement.scrollHeight)} />
-            <h1 className='MainBodyTitle'>Christian Pinta</h1>
-            <div>
+            <div style={{zIndex: 1, pointerEvents: 'none'}}>
+                <h1 className='MainBodyTitle'>Christian Pinta</h1>
                 <div className='TinyPromoBubblesParent'>
                     <div className="TinyPromoBubbles" style={{float: 'left', height: '3rem'}}>
                         <div className="MainGrid" style={{width: '15rem'}} >
