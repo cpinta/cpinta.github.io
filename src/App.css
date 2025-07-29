@@ -88,6 +88,7 @@ p{
 }
 
 :root{
+  --main-dark: #252a35;
   --main-accent: #373f51;
   --main-accent2: #89043d;
   --main-bg: #2a4494;
@@ -203,7 +204,7 @@ button{
   margin: auto;
   align-content: start;
   text-align: center;
-  background-color: hsl(from var(--main-accent) h s l / 0.95);
+  background-color: hsl(from var(--main-dark) h s l / 0.95);
   width: var(--width-percent);
   border-radius: 2rem;
   position: inherit;
