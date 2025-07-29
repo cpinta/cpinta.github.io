@@ -41,7 +41,7 @@ function BGStars({x_min, x_max, y_min, y_max, seed}: BGStarsProps){
 
         starCount++;
 
-        return <BGElement key={'star'+starCount} id={'star'+starCount} image={imgStar} x={randx} y={randy} scrollSpeed={scrollSpeed} startRotation={randRotation} style={{rotate: randRotation + 'deg', opacity: opacity + `%`, zIndex: layer}}  />
+        return <BGElement key={'star'+starCount} id={'star'+starCount} image={imgStar} x={randx} y={randy} scrollSpeed={scrollSpeed} startRotation={randRotation} starStyle={{opacity: opacity + `%`, zIndex: layer}}  />
     }
 
     function spawnStars(count: number) {

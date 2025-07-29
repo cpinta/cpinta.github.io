@@ -7,11 +7,11 @@ type BGElementProps = {
     scrollSpeed?: number;
     startRotation?: number;
     image?: string;
-    style?: React.CSSProperties;
+    starStyle?: React.CSSProperties;
 };
 
 
-function BGElement({id, image, x, y, scrollSpeed, startRotation = 0, style}: BGElementProps) {
+function BGElement({id, image, x, y, scrollSpeed, startRotation = 0, starStyle}: BGElementProps) {
     
     const floaterRef = useRef<HTMLDivElement>(null);
     const imgRef = useRef<HTMLDivElement>(null);
@@ -49,9 +49,6 @@ function BGElement({id, image, x, y, scrollSpeed, startRotation = 0, style}: BGE
             var deltaTime: number = updateEvery
             
             spinSpeed.current -= spinSlowdown * deltaTime
-            if(id == 'star77'){
-                console.log("spinspeed: ", spinSpeed.current, " rotation:", rotation)
-            }
 
             // whenever I read rotation in this function, it is always 0
 
@@ -64,6 +61,9 @@ function BGElement({id, image, x, y, scrollSpeed, startRotation = 0, style}: BGE
             rotat.current += spinSpeed.current
 
             setRotation(rotat.current)
+            if(id == 'star888'){
+                console.log("spinspeed: ", spinSpeed.current, " rotation:", rotation)
+            }
         }, updateEvery);
         
 
@@ -93,10 +93,12 @@ function BGElement({id, image, x, y, scrollSpeed, startRotation = 0, style}: BGE
     function handleMouseLeave(event: React.MouseEvent<HTMLDivElement>){
         prevIsValid.current = false
     }
+    
+    var floaterStyle: React.CSSProperties = { ...starStyle, top: y, left: x, position: 'absolute' };
 
     return(
-        <div id={id} ref={floaterRef} style={{top: y, left: x, position: 'absolute'}} onClick={() => setRotation(Math.random() * 180)} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
-            <img src={image} style={style || {rotate: `${rotation}deg`}} />
+        <div id={id} ref={floaterRef} style={floaterStyle} onClick={() => setRotation(Math.random() * 180)} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+            <img src={image} style={{rotate: `${rotation}deg`}} />
         </div>
     )
 }
