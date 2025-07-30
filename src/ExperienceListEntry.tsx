@@ -6,13 +6,12 @@ type ProjectListEntryProps = {
     image: string;
     hover?: string;
     subtitle?: string;
-    date?: string;
     descrption: string;
     link?: string;
 };
 
 
-function ProjectListEntry({title, image, hover, descrption, link, subtitle, date}: ProjectListEntryProps) {
+function ProjectListEntry({title, image, hover, descrption, link, subtitle}: ProjectListEntryProps) {
     
     const imgRef = useRef<HTMLImageElement>(null);
 
@@ -37,11 +36,7 @@ function ProjectListEntry({title, image, hover, descrption, link, subtitle, date
             <tbody>
                 <tr>
                     <td className='table-title' colSpan={2}>
-                        <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
-                            <h2>{title}</h2>
-                            <p style={{marginLeft: '0.75rem'}}>{subtitle}</p>
-                            <p style={{marginLeft: 'auto'}}>{date}</p>
-                        </div>
+                        <h2>{title}</h2> 
                     </td>
                 </tr>
                 <tr>

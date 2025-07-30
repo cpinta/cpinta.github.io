@@ -69,7 +69,7 @@ function BGStars({x_min, x_max, y_min, y_max, seed}: BGStarsProps){
     }
 
     useEffect(() => {
-        spawnStars(500);
+        spawnStars(200);
     }, []);
 
     return(
