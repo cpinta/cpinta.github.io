@@ -17,7 +17,7 @@ function MainBody(){
     return(
         <BrowserRouter>
             <section className='Background'>
-                <BGStars x_min={0} x_max={window.innerWidth} y_min={0} y_max={Math.max(3600)} />
+                <BGStars x_min={0} x_max={window.innerWidth} y_min={0} y_max={Math.max(1080)} />
                 <div style={{zIndex: 5, pointerEvents: 'none'}}>
                     <h1 className='MainBodyTitle'>Christian Pinta</h1>
                     <div className='TinyPromoBubblesParent'>
@@ -25,15 +25,16 @@ function MainBody(){
                             <div className="MainGrid" style={{width: '15rem'}} >
                                 <GridItem title="Github" image={iconGithub} link='https://github.com/cpinta' newTab={true} />
                                 <GridItem title="LinkedIn" image={iconLinkedIn} link='https://www.linkedin.com/in/christian-pinta/' newTab={true} />
-                                <GridItem title="Resume" image={iconDocument} imageStyle={{filter: 'invert(1)'}} imageAlt='Document icons created by Freepik - Flaticon' link='' />
+                                <GridItem title="Resume" image={iconDocument} link='./Resume.pdf' imageStyle={{filter: 'invert(1)'}} imageAlt='Document icons created by Freepik - Flaticon' />
                             </div>
                         </div>
                     </div>
                     <div className="ProjectBody" style={{pointerEvents: 'all'}}>
-                        <Routes>
+                        <ProjectsPage />
+                        {/* <Routes>
                             <Route path="/" element={<ProjectsPage />} />
                             <Route path="/experience" element={<ExperiencePage />} />
-                        </Routes>
+                        </Routes> */}
                     </div>
                 </div>
             </section>
