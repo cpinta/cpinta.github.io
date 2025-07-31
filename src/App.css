@@ -264,6 +264,11 @@ button{
   text-align: center;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
 
 .ImageSequence{
   float:left;

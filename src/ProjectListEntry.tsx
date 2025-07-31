@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import GridItem from './GridItem';
+import { href } from 'react-router-dom';
 
 type ProjectListEntryProps = {
     title: string;
@@ -50,6 +51,7 @@ function ProjectListEntry({title, image, hover, descrption, link, subtitle, date
                     </td>
                     <td className='table-desc'>
                         <p>{descrption}</p>
+                        <a style={{ pointerEvents: 'all', float: 'right' }} href={link} {...({ target: "_blank", rel: "noopener noreferrer" })} >View on Github</a>
                     </td>
                 </tr>
             </tbody>

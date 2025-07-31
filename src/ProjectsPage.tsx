@@ -14,8 +14,8 @@ function ProjectsPage(){
             <h2 style={{marginBottom: '1rem'}}>Projects</h2>
             {/* <h2>Projects</h2>  */}
             {/* bold only parts of the description text */}
-            <ProjectListEntry title='PintoBoy' subtitle='C#, Unity, Blender' date='12/2023 - 02/2024' image={imgPintoBoy} hover={gifPintoBoy} descrption='Programmed, 3D modeled, and textured an item for the game Lethal Company. The item was published on a public modding website where I received and responded to feedback. The item has amassed over 800,000 downloads.' />
-            <ProjectListEntry title='A Skeleton Stole My Wife' subtitle='GDScript, Godot' date='10/2024' image={imgGuy} hover={gifGuy} descrption='Created a game in the span of a month using a specific theme. Used effective communication with an artist in order to create designs and animations for the project. Was able to finish the project on time and submitted it to a game jam event.' />
+            <ProjectListEntry title='PintoBoy' subtitle='C#, Unity, Blender' date='12/2023 - 02/2024' link='https://github.com/cpinta/PintoBoy-LethalCompanyMod' image={imgPintoBoy} hover={gifPintoBoy} descrption='Programmed, 3D modeled, and textured an item for the game Lethal Company. The item was published on a public modding website where I received and responded to feedback. The item has amassed over 800,000 downloads.' />
+            <ProjectListEntry title='A Skeleton Stole My Wife' subtitle='GDScript, Godot' date='10/2024' link='https://github.com/cpinta/a-skeleton-stole-my-wife' image={imgGuy} hover={gifGuy} descrption='Created a game in the span of a month using a specific theme. Used effective communication with an artist in order to create designs and animations for the project. Was able to finish the project on time and submitted it to a game jam event.' />
 
         </>
     )
