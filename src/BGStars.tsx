@@ -14,7 +14,7 @@ function BGStars({}: BGStarsProps){
     const Y_MIN = 0;
 
     const DESKTOP_STAR_TOTAL = 150;
-    const MOBILE_STAR_TOTAL = 75;
+    const MOBILE_STAR_TOTAL = 50;
 
     const MOBILE_WINDOW_WIDTH = 1200;
 
@@ -30,10 +30,10 @@ function BGStars({}: BGStarsProps){
 
     useEffect(() => {
         if(window.innerWidth < MOBILE_WINDOW_WIDTH){
-            spawnStars(DESKTOP_STAR_TOTAL);
+            spawnStars(MOBILE_STAR_TOTAL);
         }
         else{
-            spawnStars(MOBILE_STAR_TOTAL);
+            spawnStars(DESKTOP_STAR_TOTAL);
         }
         window.addEventListener('resize', () => {
             var num = starParent.current?.childElementCount? starParent.current.childElementCount : 99999;
@@ -41,10 +41,6 @@ function BGStars({}: BGStarsProps){
                 if(num != MOBILE_STAR_TOTAL){
                     if(num > MOBILE_STAR_TOTAL){
                         spawnStars(MOBILE_STAR_TOTAL);
-                        // for(let i = 0; i < num; i++){
-                        //     var star = starParent.current?.childNodes[i] as HTMLDivElement;
-                        //     star?.remove();
-                        // }
                     }
                 }
             }
@@ -90,6 +86,7 @@ function BGStars({}: BGStarsProps){
     }
 
     function spawnStars(count: number) {
+        defaultSeed = 1000;
         var newStars: React.ReactElement[] = [];
         for (let i = 0; i < count; i++) {
             var star = spawnStar()
@@ -101,9 +98,8 @@ function BGStars({}: BGStarsProps){
     }
 
     //4
-    //80085
 
-    var defaultSeed = 1;
+    var defaultSeed = 1000;
     function random() {
         var x = Math.sin(defaultSeed++) * 10000;
         return x - Math.floor(x);
