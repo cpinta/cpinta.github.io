@@ -10,14 +10,13 @@ type BGStarsProps = {
 function BGStars({}: BGStarsProps){
 
     const starParent = useRef<HTMLDivElement>(null);
-    // const X_MAX = x_max;
-    // const Y_MAX = y_max;
-    // const X_MIN = x_min;
-    // const Y_MIN = y_min;
-    // const X_MAX = starParent.current?.scrollWidth;
-    // const Y_MAX = starParent.current?.scrollHeight;
     const X_MIN = 0;
     const Y_MIN = 0;
+
+    const DESKTOP_STAR_TOTAL = 150;
+    const MOBILE_STAR_TOTAL = 75;
+
+    const MOBILE_WINDOW_WIDTH = 1200;
 
     var starCount = 0;
     // make algorithm that adds spacing in between stars
@@ -26,6 +25,39 @@ function BGStars({}: BGStarsProps){
     var scrollLayerCount = 3;
     
     const [stars, setStars] = useState<React.ReactElement[]>([]);
+
+
+
+    useEffect(() => {
+        if(window.innerWidth < MOBILE_WINDOW_WIDTH){
+            spawnStars(DESKTOP_STAR_TOTAL);
+        }
+        else{
+            spawnStars(MOBILE_STAR_TOTAL);
+        }
+        window.addEventListener('resize', () => {
+            var num = starParent.current?.childElementCount? starParent.current.childElementCount : 99999;
+            if(window.innerWidth < MOBILE_WINDOW_WIDTH){
+                if(num != MOBILE_STAR_TOTAL){
+                    if(num > MOBILE_STAR_TOTAL){
+                        spawnStars(MOBILE_STAR_TOTAL);
+                        // for(let i = 0; i < num; i++){
+                        //     var star = starParent.current?.childNodes[i] as HTMLDivElement;
+                        //     star?.remove();
+                        // }
+                    }
+                }
+            }
+            else{
+                if(num != DESKTOP_STAR_TOTAL){
+                    if(num < DESKTOP_STAR_TOTAL){
+                        
+                        spawnStars(DESKTOP_STAR_TOTAL);
+                    }
+                }
+            }
+        });
+    }, []);
 
     function spawnStar(){
         const screenWidth = starParent.current?.clientWidth? starParent.current?.clientWidth : window.innerWidth;
@@ -76,10 +108,6 @@ function BGStars({}: BGStarsProps){
         var x = Math.sin(defaultSeed++) * 10000;
         return x - Math.floor(x);
     }
-
-    useEffect(() => {
-        spawnStars(150);
-    }, []);
 
     return(
         <section id='starParent' ref={starParent} style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%'}}>
