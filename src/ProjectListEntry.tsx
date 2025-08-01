@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import GridItem from './GridItem';
 import { href } from 'react-router-dom';
+import ProjectListEntryLink from './ProjectListEntryLink';
 
 type ProjectListEntryProps = {
     title: string;
@@ -9,11 +10,12 @@ type ProjectListEntryProps = {
     subtitle?: string;
     date?: string;
     descrption: string;
-    link?: string;
+    links?: string[];
+    linkText?: string[];
 };
 
 
-function ProjectListEntry({title, image, hover, descrption, link, subtitle, date}: ProjectListEntryProps) {
+function ProjectListEntry({title, image, hover, descrption, links, linkText, subtitle, date}: ProjectListEntryProps) {
     
     const imgRef = useRef<HTMLImageElement>(null);
 
@@ -30,6 +32,13 @@ function ProjectListEntry({title, image, hover, descrption, link, subtitle, date
             if(image){
                 imgRef.current.src = image;
             }
+        }
+    }
+
+    var linkEntries: React.ReactElement[] = [];
+    if(links){
+        for(let i = 0; i < links.length; i++){
+            linkEntries.push(<ProjectListEntryLink text={linkText ? linkText[i] : 'View'} link={links[i]} />);
         }
     }
 
@@ -51,7 +60,9 @@ function ProjectListEntry({title, image, hover, descrption, link, subtitle, date
                     </td>
                     <td className='table-desc'>
                         <p>{descrption}</p>
-                        <a style={{ pointerEvents: 'all', float: 'right' }} href={link} {...({ target: "_blank", rel: "noopener noreferrer" })} >View on Github</a>
+                        <div>
+                            {linkEntries}
+                        </div>
                     </td>
                 </tr>
             </tbody>
