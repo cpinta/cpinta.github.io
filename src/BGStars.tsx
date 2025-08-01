@@ -49,6 +49,8 @@ function BGStars({}: BGStarsProps){
 
         randx = (randx/X_MAX) * 100;
         randx -= starPercent;
+        
+        randy -= starWidth;
 
         starCount++;
 
