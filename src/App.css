@@ -98,13 +98,22 @@ p{
   --width-percent: 80%;
 }
 
+@media screen and (max-width: 1200px){
+  html, body, #root {
+    font-size: 16px !important;
+  }
+  .ProjectBody{
+    padding-top: 2rem !important;
+  }
+}
+
 html, body, #root {
+  font-size: 24px;
   height: 100%;
   margin: 0;
   background-color: var(--main-bg);
   color: var(--main-text);
   font-weight: bold;
-  font-size: 24px;
   font-family: 'Clear Sans', Arial, sans-serif;
   z-index: -10;
   position: relative;
@@ -202,6 +211,7 @@ button{
 .ProjectBody{
   height: auto;
   margin: auto;
+  margin-top: 1rem;
   align-content: start;
   text-align: center;
   background-color: hsl(from var(--main-dark) h s l / 0.95);
@@ -209,8 +219,7 @@ button{
   border-radius: 2rem;
   position: inherit;
   box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.38);
-  padding:2rem;
-  margin-top: 1rem;
+  padding:1rem;
   z-index: 1;
   backdrop-filter: blur(2px) saturate(200%);
   transition: 0.5s;
