@@ -17,7 +17,7 @@ function MainBody(){
     return(
         <BrowserRouter>
             <section className='Background'>
-                <BGStars x_min={0} x_max={window.innerWidth} y_min={0} y_max={Math.max(1080)} />
+                <BGStars />
                 <div style={{zIndex: 5, pointerEvents: 'none'}}>
                     <h1 className='MainBodyTitle'>Christian Pinta</h1>
                     <div className='TinyPromoBubblesParent'>
