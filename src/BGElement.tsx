@@ -28,12 +28,6 @@ function BGElement({id, image, x, y, scrollSpeed, startRotation = 0, starStyle}:
     const spinSlowdown: number = 0.001
     const spinMultiplier: number = 0.01
 
-    function animate(deltaTime: number) {
-        
-
-    }
-        
-    
     useEffect(() => {
         function parallax() {
             const yPos = 0 - window.pageYOffset / (scrollSpeed ?? 1);
@@ -43,24 +37,33 @@ function BGElement({id, image, x, y, scrollSpeed, startRotation = 0, starStyle}:
         }
         window.addEventListener("scroll", parallax);
 
-        const updateRotation = setInterval(() => {
-            var deltaTime: number = updateEvery
-            
-            spinSpeed.current -= spinSlowdown * deltaTime
-
-            if(spinSpeed.current < 0){
-                spinSpeed.current = 0
-                prevIsValid.current = false
-                return
-            }
-            rotat.current += spinSpeed.current
-
-            setRotation(rotat.current)
-        }, updateEvery);
-        
-
         return () => window.removeEventListener("scroll", parallax);
     }, []);
+
+    const cbUpdateRotation = useRef(undefined as string | number | NodeJS.Timeout | undefined);
+    
+    function updateRotation() {
+        var deltaTime: number = updateEvery
+        
+        spinSpeed.current -= spinSlowdown * deltaTime
+
+        if(spinSpeed.current < 0){
+            spinSpeed.current = 0
+            prevIsValid.current = false
+            clearInterval(cbUpdateRotation.current)
+            return
+        }
+        rotat.current += spinSpeed.current
+
+        setRotation(rotat.current)
+    }
+
+    function handleMouseEnter(event: React.MouseEvent<HTMLDivElement>){
+        prevIsValid.current = true
+        prevX.current = event.clientX;
+        prevY.current = event.clientY;
+        cbUpdateRotation.current = setInterval(updateRotation, updateEvery);
+    }
 
     function handleMouseMove(event: React.MouseEvent<HTMLDivElement>) {
         var x = event.clientX
@@ -88,7 +91,7 @@ function BGElement({id, image, x, y, scrollSpeed, startRotation = 0, starStyle}:
     var floaterStyle: React.CSSProperties = { ...starStyle, top: y, left: x+`%`, position: 'absolute' };
 
     return(
-        <div id={id} ref={floaterRef} style={floaterStyle} onClick={() => setRotation(Math.random() * 180)} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
+        <div id={id} ref={floaterRef} style={floaterStyle} onClick={() => setRotation(Math.random() * 180)} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} onMouseEnter={handleMouseEnter}>
             <img src={image} style={{rotate: `${rotation}deg`}} />
         </div>
     )
