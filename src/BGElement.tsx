@@ -20,13 +20,14 @@ function BGElement({id, image, x, y, scrollSpeed, startRotation = 0, starStyle}:
     var prevY = useRef<number>(0);
     var spinSpeed = useRef<number>(0);
 
-    var fps: number = 20
-    var updateEvery: number = 1000 / fps;
+    var FPS: number = 20
+    var UPDATE_EVERY: number = 1000 / FPS;
     const currentTime = useRef<number>(0);
     var rotat = useRef<number>(startRotation);
     const [rotation, setRotation] = useState(startRotation);
-    const spinSlowdown: number = 0.001
-    const spinMultiplier: number = 0.01
+    const SPIN_SLOWDOWN: number = 0.001
+    const SPIN_MULTIPLIER: number = 0.01
+    const MIN_STAR_SPIN_SPEED: number = 1;
 
     useEffect(() => {
         function parallax() {
@@ -43,11 +44,11 @@ function BGElement({id, image, x, y, scrollSpeed, startRotation = 0, starStyle}:
     const cbUpdateRotation = useRef(undefined as string | number | NodeJS.Timeout | undefined);
     
     function updateRotation() {
-        var deltaTime: number = updateEvery
+        var deltaTime: number = UPDATE_EVERY
         
-        spinSpeed.current -= spinSlowdown * deltaTime
+        spinSpeed.current -= SPIN_SLOWDOWN * deltaTime
 
-        if(spinSpeed.current < 0){
+        if(spinSpeed.current < MIN_STAR_SPIN_SPEED){
             spinSpeed.current = 0
             prevIsValid.current = false
             clearInterval(cbUpdateRotation.current)
@@ -62,7 +63,7 @@ function BGElement({id, image, x, y, scrollSpeed, startRotation = 0, starStyle}:
         prevIsValid.current = true
         prevX.current = event.clientX;
         prevY.current = event.clientY;
-        cbUpdateRotation.current = setInterval(updateRotation, updateEvery);
+        cbUpdateRotation.current = setInterval(updateRotation, UPDATE_EVERY);
     }
 
     function handleMouseMove(event: React.MouseEvent<HTMLDivElement>) {
@@ -75,7 +76,7 @@ function BGElement({id, image, x, y, scrollSpeed, startRotation = 0, starStyle}:
 
             var distance = Math.pow(diffx, 2) + Math.pow(diffy, 2)
 
-            spinSpeed.current = distance * spinMultiplier
+            spinSpeed.current = distance * SPIN_MULTIPLIER
         }
         else{
             prevX.current = x
