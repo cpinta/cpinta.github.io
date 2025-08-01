@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/static/css/main.f68adaeb.css",
-    "main.js": "/static/js/main.71382723.js",
+    "main.css": "/static/css/main.c80e4b4b.css",
+    "main.js": "/static/js/main.91ccec7e.js",
     "static/js/453.209d4f9d.chunk.js": "/static/js/453.209d4f9d.chunk.js",
     "static/media/pintoboy_anim.gif": "/static/media/pintoboy_anim.cba98fb28225d45b7469.gif",
     "static/media/pintoboy.png": "/static/media/pintoboy.6f25f89790217a36eff1.png",
     "static/media/ClearSans-Regular.ttf": "/static/media/ClearSans-Regular.43ea7d2123718b0cfd2c.ttf",
     "static/media/ClearSans-Bold.ttf": "/static/media/ClearSans-Bold.abc586c1bb1f12c8d3d2.ttf",
     "index.html": "/index.html",
-    "main.f68adaeb.css.map": "/static/css/main.f68adaeb.css.map",
-    "main.71382723.js.map": "/static/js/main.71382723.js.map",
+    "main.c80e4b4b.css.map": "/static/css/main.c80e4b4b.css.map",
+    "main.91ccec7e.js.map": "/static/js/main.91ccec7e.js.map",
     "453.209d4f9d.chunk.js.map": "/static/js/453.209d4f9d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f68adaeb.css",
-    "static/js/main.71382723.js"
+    "static/css/main.c80e4b4b.css",
+    "static/js/main.91ccec7e.js"
   ]
 }
