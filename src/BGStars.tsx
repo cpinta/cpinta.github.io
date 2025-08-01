@@ -4,15 +4,10 @@ import imgStar from './images/star.png';
 import BGElement from './BGElement';
 
 type BGStarsProps = {
-    x_min: number,
-    x_max: number,
-    y_min: number,
-    y_max: number,
-    seed?: number
 }
 
 
-function BGStars({x_min, x_max, y_min, y_max, seed}: BGStarsProps){
+function BGStars({}: BGStarsProps){
 
     const starParent = useRef<HTMLDivElement>(null);
     // const X_MAX = x_max;
@@ -33,6 +28,9 @@ function BGStars({x_min, x_max, y_min, y_max, seed}: BGStarsProps){
     const [stars, setStars] = useState<React.ReactElement[]>([]);
 
     function spawnStar(){
+        const screenWidth = starParent.current?.clientWidth? starParent.current?.clientWidth : window.innerWidth;
+        const starWidth = 50;
+        const starPercent = starWidth / screenWidth * 100;
         const X_MAX = starParent.current?.clientWidth? starParent.current?.clientWidth : window.innerWidth;
         const Y_MAX = starParent.current?.clientHeight? starParent.current?.clientHeight : window.innerHeight;
         var randx = random() * (X_MAX - X_MIN) + X_MIN
@@ -48,6 +46,9 @@ function BGStars({x_min, x_max, y_min, y_max, seed}: BGStarsProps){
                 layer = 10;
             }
         }
+
+        randx = (randx/X_MAX) * 100;
+        randx -= starPercent;
 
         starCount++;
 
@@ -70,10 +71,7 @@ function BGStars({x_min, x_max, y_min, y_max, seed}: BGStarsProps){
 
     var defaultSeed = 1;
     function random() {
-        if(!seed) {
-            seed = defaultSeed;
-        }
-        var x = Math.sin(seed++) * 10000;
+        var x = Math.sin(defaultSeed++) * 10000;
         return x - Math.floor(x);
     }
 

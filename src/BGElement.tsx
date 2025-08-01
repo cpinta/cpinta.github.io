@@ -85,7 +85,7 @@ function BGElement({id, image, x, y, scrollSpeed, startRotation = 0, starStyle}:
         prevIsValid.current = false
     }
     
-    var floaterStyle: React.CSSProperties = { ...starStyle, top: y, left: x, position: 'absolute' };
+    var floaterStyle: React.CSSProperties = { ...starStyle, top: y, left: x+`%`, position: 'absolute' };
 
     return(
         <div id={id} ref={floaterRef} style={floaterStyle} onClick={() => setRotation(Math.random() * 180)} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave}>
