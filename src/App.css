@@ -105,6 +105,7 @@ p{
   }
   .ProjectBody{
     padding-top: 2rem !important;
+    width: var(--width-percent) !important;
   }
 
   p { 
@@ -139,13 +140,8 @@ button{
 }
 
 .TinyPromoBubblesParent{
-  height: auto;
-  margin: auto;
-  text-align: center;
-  width: var(--width-percent);
-  top: 2rem;
-  z-index: 10;
-  position: relative;
+  position: absolute;
+  top: -2.5rem;
 }
 
 .TinyPromoBubbles{
@@ -220,8 +216,7 @@ button{
   align-content: start;
   text-align: center;
   background-color: hsl(from var(--main-dark) h s l / 0.95);
-  width: var(--width-percent);
-  max-width: var(--width-pixels);
+  width: var(--width-pixels);
   border-radius: 2rem;
   position: inherit;
   box-shadow: 0px 8px 32px rgba(0, 0, 0, 0.38);
@@ -254,7 +249,9 @@ button{
 
 .MainBodyTitle{
   font-size: 3rem;
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
+  color: var(--header-text);
+  text-shadow: 0 0 2px #000;
 }
 
 
