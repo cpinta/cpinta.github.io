@@ -25,7 +25,7 @@ function MainBody(){
                             <div className="MainGrid" style={{width: '15rem'}} >
                                 <GridItem title="Github" image={iconGithub} link='https://github.com/cpinta' newTab={true} />
                                 <GridItem title="LinkedIn" image={iconLinkedIn} link='https://www.linkedin.com/in/christian-pinta/' newTab={true} />
-                                <GridItem title="Resume" image={iconDocument} link='./Resume.pdf' imageStyle={{filter: 'invert(1)'}} imageAlt='Document icons created by Freepik - Flaticon' />
+                                <GridItem title="Resume" image={iconDocument} link='./Resume.pdf' newTab={true} imageStyle={{filter: 'invert(1)'}} imageAlt='Document icons created by Freepik - Flaticon' />
                             </div>
                         </div>
                     </div>
