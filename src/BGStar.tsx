@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import GridItem from './GridItem';
 
 type BGElementProps = {
     id: string;
@@ -13,7 +12,7 @@ type BGElementProps = {
 function BGStar({id, image, x, y, scrollSpeed, style}: BGElementProps) {
     
     const floaterRef = useRef<HTMLDivElement>(null);
-    const [isHovered, setIsHovered] = useState(false);
+    const [_isHovered, setIsHovered] = useState(false);
     
     useEffect(() => {
         function parallax() {

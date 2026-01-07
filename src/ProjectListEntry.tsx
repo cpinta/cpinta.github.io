@@ -1,6 +1,4 @@
-import React, { useEffect, useRef } from 'react';
-import GridItem from './GridItem';
-import { href } from 'react-router-dom';
+import React, { useRef } from 'react';
 import ProjectListEntryLink from './ProjectListEntryLink';
 
 type ProjectListEntryProps = {

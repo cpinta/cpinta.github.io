@@ -20,7 +20,6 @@ function BGStars({}: BGStarsProps){
 
     var starCount = 0;
     // make algorithm that adds spacing in between stars
-    var starSpace = 100;
     var scrollSpeedDiffBetweenStarLayers = 2;
     var scrollLayerCount = 3;
     

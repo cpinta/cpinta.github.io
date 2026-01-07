@@ -1,17 +1,16 @@
-import React, { useEffect, useRef } from 'react';
-import GridItem from './GridItem';
+import { useRef } from 'react';
 
 type ProjectListEntryProps = {
     title: string;
     image: string;
     hover?: string;
-    subtitle?: string;
+    _subtitle?: string;
     descrption: string;
-    link?: string;
+    _link?: string;
 };
 
 
-function ProjectListEntry({title, image, hover, descrption, link, subtitle}: ProjectListEntryProps) {
+function ProjectListEntry({title, image, hover, descrption}: ProjectListEntryProps) {
     
     const imgRef = useRef<HTMLImageElement>(null);
 

@@ -1,11 +1,9 @@
-import React from 'react';
-
 interface SectionButtonProps{
     displayText: string;
     pathPage: string;
 }
 
-function SectionButton({displayText, pathPage} : SectionButtonProps){
+function SectionButton({displayText} : SectionButtonProps){
     return(
         <>
             <button>

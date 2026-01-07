@@ -1,5 +1,3 @@
-import React from 'react';
-
 function ImgSeq(){
     return(
         <section className='ImageSequence'>

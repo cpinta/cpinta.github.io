@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 type BGElementProps = {
     id: string;
@@ -22,7 +22,7 @@ function BGElement({id, image, x, y, scrollSpeed, startRotation = 0, starStyle}:
 
     var FPS: number = 20
     var UPDATE_EVERY: number = 1000 / FPS;
-    const currentTime = useRef<number>(0);
+    // const currentTime = useRef<number>(0);
     var rotat = useRef<number>(startRotation);
     const [rotation, setRotation] = useState(startRotation);
     const SPIN_SLOWDOWN: number = 0.001
@@ -41,7 +41,7 @@ function BGElement({id, image, x, y, scrollSpeed, startRotation = 0, starStyle}:
         return () => window.removeEventListener("scroll", parallax);
     }, []);
 
-    const cbUpdateRotation = useRef(undefined as string | number | NodeJS.Timeout | undefined);
+    const cbUpdateRotation = useRef(undefined as number | undefined);
     
     function updateRotation() {
         var deltaTime: number = UPDATE_EVERY
@@ -85,7 +85,7 @@ function BGElement({id, image, x, y, scrollSpeed, startRotation = 0, starStyle}:
         }
     }
 
-    function handleMouseLeave(event: React.MouseEvent<HTMLDivElement>){
+    function handleMouseLeave(_event: React.MouseEvent<HTMLDivElement>){
         prevIsValid.current = false
     }
     

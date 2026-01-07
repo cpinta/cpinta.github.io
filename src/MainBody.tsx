@@ -1,16 +1,13 @@
-import React, { useRef } from 'react';
-import { Routes, BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 
 import GridItem from './GridItem';
 
-import iconDocument from './images/document.png';
 import iconGithub from './images/github-mark.png';
 import iconLinkedIn from './images/InBug-White.png';
 
 import BGStars from './BGStars';
 
 import ProjectsPage from './ProjectsPage';
-import ExperiencePage from './ExperiencePage';
 
 
 function MainBody(){

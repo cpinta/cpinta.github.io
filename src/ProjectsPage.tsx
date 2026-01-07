@@ -1,5 +1,3 @@
-import React, { useRef } from 'react';
-
 import imgPintoBoy from './images/pintoboy.png';
 import gifPintoBoy from './images/pintoboy_anim.gif';
 

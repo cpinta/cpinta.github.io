@@ -11,7 +11,7 @@ type GridItemProps = {
     newTab?: boolean;
 };
 
-function GridItem({ title, link, image, imageAlt, imageStyle, tooltip, attribution, newTab }: GridItemProps){
+function GridItem({ title, link, image, imageStyle, attribution, newTab }: GridItemProps){
     return(
         
         <a className="MainGridItem" style={{ pointerEvents: 'all' }} href={link} {...(newTab ? { target: "_blank", rel: "noopener noreferrer" } : {})} >
