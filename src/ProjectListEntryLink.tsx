@@ -13,7 +13,6 @@ function ProjectListEntryLink({icon, link, alt}: ProjectListEntryLinkProps) {
         </>
     )
 }
-
 function redirect(_event: React.MouseEvent<HTMLButtonElement, MouseEvent>, link: string){
     window.location.href = link
 }
