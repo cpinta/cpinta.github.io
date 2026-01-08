@@ -242,7 +242,7 @@ button{
   /* margin-bottom: 1.25rem; */
 }
 
-.ListEntry:hover tbody tr td img{
+.ListEntryIcon:hover {
   transform: scale(1.5);
   transition: 0.5s;
 }
@@ -250,7 +250,13 @@ button{
 .ListEntryLink{
   pointer-events: all;
   float: right;
-  margin-left: 3rem;
+  margin-left: 1rem;
+  filter: invert();
+}
+
+.ListEntryLink img {
+  width:auto;
+  height:2rem;
 }
 
 .MainBodyTitle{

@@ -25,7 +25,7 @@ function BGElement({id, image, x, y, scrollSpeed, startRotation = 0, starStyle}:
     // const currentTime = useRef<number>(0);
     var rotat = useRef<number>(startRotation);
     const [rotation, setRotation] = useState(startRotation);
-    const SPIN_SLOWDOWN: number = 0.001
+    const SPIN_SLOWDOWN: number = 0.01
     const SPIN_MULTIPLIER: number = 0.01
     const MIN_STAR_SPIN_SPEED: number = 1;
 
@@ -89,11 +89,11 @@ function BGElement({id, image, x, y, scrollSpeed, startRotation = 0, starStyle}:
         prevIsValid.current = false
     }
     
-    var floaterStyle: React.CSSProperties = { ...starStyle, top: y, left: x+`%`, position: 'absolute' };
+    var floaterStyle: React.CSSProperties = { ...starStyle, top: y, left: x+`%`, position: 'absolute', height: '2rem' };
 
     return(
         <div id={id} ref={floaterRef} style={floaterStyle} onClick={() => setRotation(Math.random() * 180)} onMouseMove={handleMouseMove} onMouseLeave={handleMouseLeave} onMouseEnter={handleMouseEnter}>
-            <img src={image} style={{rotate: `${rotation}deg`}} />
+            <img src={image} style={{rotate: `${rotation}deg`, height: '2rem'}} />
         </div>
     )
 }

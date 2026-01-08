@@ -8,12 +8,11 @@ type ProjectListEntryProps = {
     subtitle?: string;
     date?: string;
     descrption: string;
-    links?: string[];
-    linkText?: string[];
+    linkIcons?: { icon: string; link: string; alt: string }[];
 };
 
 
-function ProjectListEntry({title, image, hover, descrption, links, linkText, subtitle, date}: ProjectListEntryProps) {
+function ProjectListEntry({title, image, hover, descrption, linkIcons, subtitle, date}: ProjectListEntryProps) {
     
     const imgRef = useRef<HTMLImageElement>(null);
 
@@ -34,9 +33,9 @@ function ProjectListEntry({title, image, hover, descrption, links, linkText, sub
     }
 
     var linkEntries: React.ReactElement[] = [];
-    if(links){
-        for(let i = 0; i < links.length; i++){
-            linkEntries.push(<ProjectListEntryLink text={linkText ? linkText[i] : 'View'} link={links[i]} />);
+    if(linkIcons){
+        for(let i = 0; i < linkIcons.length; i++){
+            linkEntries.push(<ProjectListEntryLink icon={linkIcons[i].icon} link={linkIcons[i].link} alt={linkIcons[i].alt}/>);
         }
     }
 
@@ -54,7 +53,7 @@ function ProjectListEntry({title, image, hover, descrption, links, linkText, sub
                 </tr>
                 <tr>
                     <td>     
-                        <img ref={imgRef} src={image} alt={title} style={{width: 'auto', height: '6rem'}} />
+                        <img className='ListEntryIcon' ref={imgRef} src={image} alt={title} style={{width: 'auto', height: '6rem'}} />
                     </td>
                     <td className='table-desc'>
                         <p>{descrption}</p>

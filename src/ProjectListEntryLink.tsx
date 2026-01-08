@@ -1,14 +1,21 @@
 type ProjectListEntryLinkProps = {
-    text: string;
+    icon: string;
+    alt: string;
     link: string;
 };
 
-function ProjectListEntryLink({text, link}: ProjectListEntryLinkProps) {
+function ProjectListEntryLink({icon, link, alt}: ProjectListEntryLinkProps) {
     return(
         <>
-            <a className='ListEntryLink' href={link} {...({ target: "_blank", rel: "noopener noreferrer" })} >{text}</a>
+            <button className='ListEntryLink' onClick={(event) => redirect(event, link)} >
+                <img src={icon} alt={alt} />
+            </button>
         </>
     )
+}
+
+function redirect(_event: React.MouseEvent<HTMLButtonElement, MouseEvent>, link: string){
+    window.location.href = link
 }
 
 export default ProjectListEntryLink;
