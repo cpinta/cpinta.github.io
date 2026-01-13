@@ -60,6 +60,7 @@ function BGElement({id, image, x, y, scrollSpeed, startRotation = 0, starStyle}:
     }
 
     function handleMouseEnter(event: React.MouseEvent<HTMLDivElement>){
+        console.log(x+', '+y+'  mouse enter')
         prevIsValid.current = true
         prevX.current = event.clientX;
         prevY.current = event.clientY;
@@ -69,24 +70,29 @@ function BGElement({id, image, x, y, scrollSpeed, startRotation = 0, starStyle}:
     function handleMouseMove(event: React.MouseEvent<HTMLDivElement>) {
         var x = event.clientX
         var y = event.clientY
+        setSpinSpeed(x, y)
+    }
 
+    function handleMouseLeave(_event: React.MouseEvent<HTMLDivElement>){
+        var x = _event.clientX
+        var y = _event.clientY
+        setSpinSpeed(x, y)
+    }
+
+    function setSpinSpeed(newX: number, newY: number){
         if (prevIsValid.current){
-            var diffx = x - prevX.current
-            var diffy = y - prevY.current
+            var diffx = newX - prevX.current
+            var diffy = newY - prevY.current
 
             var distance = Math.pow(diffx, 2) + Math.pow(diffy, 2)
 
             spinSpeed.current = distance * SPIN_MULTIPLIER
         }
         else{
-            prevX.current = x
-            prevY.current = y
+            prevX.current = newX
+            prevY.current = newY
             prevIsValid.current = true
         }
-    }
-
-    function handleMouseLeave(_event: React.MouseEvent<HTMLDivElement>){
-        prevIsValid.current = false
     }
     
     var floaterStyle: React.CSSProperties = { ...starStyle, top: y, left: x+`%`, position: 'absolute', height: '2rem' };

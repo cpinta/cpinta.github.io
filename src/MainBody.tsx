@@ -5,7 +5,7 @@ import GridItem from './GridItem';
 import iconGithub from './images/github-mark.png';
 import iconLinkedIn from './images/InBug-White.png';
 
-import BGStars from './BGStars';
+import BGStars from './stars/BGStars';
 
 import ProjectsPage from './ProjectsPage';
 

@@ -9,10 +9,11 @@ type ProjectListEntryProps = {
     date?: string;
     descrption: string;
     linkIcons?: { icon: string; link: string; alt: string }[];
+    cssClass?: string;
 };
 
 
-function ProjectListEntry({title, image, hover, descrption, linkIcons, subtitle, date}: ProjectListEntryProps) {
+function ProjectListEntry({title, image, hover, descrption, linkIcons, subtitle, date, cssClass}: ProjectListEntryProps) {
     
     const imgRef = useRef<HTMLImageElement>(null);
 
@@ -40,20 +41,20 @@ function ProjectListEntry({title, image, hover, descrption, linkIcons, subtitle,
     }
 
     return(
-        <table className='ListEntry' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <table className={'ListEntry'+ (cssClass? ' '+cssClass : '')} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
             <tbody>
                 <tr>
                     <td className='table-title' colSpan={2}>
-                        <div style={{display: 'flex', flexDirection: 'row', alignItems: 'center'}}>
+                        <div className='ListEntryHeader'>
                             <h2>{title}</h2>
-                            <p style={{marginLeft: '0.75rem'}}>{subtitle}</p>
-                            <p style={{marginLeft: 'auto'}}>{date}</p>
+                            <p className='ListEntryHSubtitle'>{subtitle}</p>
+                            <p className='ListEntryHDate'>{date}</p>
                         </div>
                     </td>
                 </tr>
                 <tr>
-                    <td>     
-                        <img className='ListEntryIcon' ref={imgRef} src={image} alt={title} style={{width: 'auto', height: '6rem'}} />
+                    <td className='ListEntryIconParent'>
+                        <img className='ListEntryIcon' ref={imgRef} src={image} alt={title} />
                     </td>
                     <td className='table-desc'>
                         <p>{descrption}</p>

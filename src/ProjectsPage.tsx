@@ -1,15 +1,19 @@
-import imgPintoBoy from './images/pintoboy.png';
-import gifPintoBoy from './images/pintoboy_anim.gif';
+import imgPintoBoy from './images/projects/pintoboy.gif';
+import gifPintoBoy from './images/projects/pintoboy_anim.gif';
 
-import imgGuy from './images/guy.png';
-import gifGuy from './images/guy.gif';
+import imgGuy from './images/projects/guy.png';
+import gifGuy from './images/projects/guy.gif';
+
+import imgBear from './images/projects/bear.png';
+import gifBear from './images/projects/bear_anim.gif';
 
 import svgGit from './images/octicon--git-fork-24.svg'
 import svgPlay from './images/play-24.svg'
 
 import ProjectListEntry from './ProjectListEntry';
 
-var assmyDesc: string = 'Created a game in the span of a month using a specific theme. Effectively collaborated with an artist in order to create designs and animations for the project. Finished the project, obeying the deadline, and submitted it to a game jam event.';
+var skeltonDesc: string = 'Created a game in the span of a month using a specific theme. Effectively collaborated with an artist in order to create designs and animations for the project. Finished the project, obeying the deadline, and submitted it to a game jam event.';
+var bearDesc: string = 'A 2D Platformer with 20 stages each with a 20 second time limit. This project was created for a 3 week game jam with the goal of polish. Utilized object-oriented programming and a clean code foundation to create a complete and fun little game.'
 
 function ProjectsPage(){
     return(
@@ -17,6 +21,18 @@ function ProjectsPage(){
             <h2 style={{marginBottom: '1rem'}}>Projects</h2>
             {/* <h2>Projects</h2>  */}
             {/* bold only parts of the description text */}
+            <ProjectListEntry 
+                title='Bearly 20 Seconds' 
+                subtitle='GDScript, Godot' date='11/2025 - 1/2026' 
+                linkIcons={[
+                    {icon: svgGit, link:'https://github.com/cpinta/20-seconds', alt:'Github'},
+                    {icon: svgPlay, link:'https://pinta.itch.io/bear-game', alt:'Play'},
+                ]} 
+                image={imgBear} 
+                hover={gifBear} 
+                descrption={bearDesc}
+                cssClass='ListEntryBear'
+                />
             <ProjectListEntry 
                 title='PintoBoy' 
                 subtitle='C#, Unity, Blender' 
@@ -38,7 +54,7 @@ function ProjectsPage(){
                 ]} 
                 image={imgGuy} 
                 hover={gifGuy} 
-                descrption={assmyDesc} 
+                descrption={skeltonDesc} 
                 />
 
         </>

@@ -37,6 +37,7 @@ h1 {
 h2 {
   color:var(--header-text);
   margin: 0;
+  font-size: 2rem;
 }
 
 h3{
@@ -242,21 +243,74 @@ button{
   /* margin-bottom: 1.25rem; */
 }
 
-.ListEntryIcon:hover {
+.ListEntryIconParent {
+  display: grid;
+}
+
+.ListEntryIcon {
+  width: auto; 
+  height: 6rem;
+}
+
+.ListEntry:hover .ListEntryIcon {
   transform: scale(1.5);
   transition: 0.5s;
 }
 
-.ListEntryLink{
+.ListEntryBear .ListEntryIcon {
+  /* transform: scale(1.5) translateX(-0.5rem); */
+}
+.ListEntryBear:hover .ListEntryIcon {
+  /* transform: scale(2); */
+}
+
+.ListEntryBear .ListEntryHeader h2 {
+  /* font-size: 1.7rem;
+  white-space: nowrap; */
+}
+
+.ListEntryLink {
   pointer-events: all;
   float: right;
   margin-left: 1rem;
-  filter: invert();
+  cursor: pointer;
+  filter: drop-shadow(0px 2px 2px black);
+  transition: 0.5s;
+}
+
+.ListEntryLink:hover {
+  filter: drop-shadow(0px 4px 8px black);
+  transform: scale(1.1);
+}
+
+.ListEntryLink:hover:active {
+  filter: drop-shadow(0px 4px 8px black);
+  transform: scale(1);
+  transition: 0s;
 }
 
 .ListEntryLink img {
   width:auto;
   height:2rem;
+  filter: invert();
+}
+
+.ListEntryLink img:hover {
+  width:auto;
+  height:2rem;
+}
+
+.ListEntryHeader {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.ListEntryHSubtitle {
+  margin-left: 0.75rem;
+}
+.ListEntryHDate {
+  margin-left: auto;
 }
 
 .MainBodyTitle{

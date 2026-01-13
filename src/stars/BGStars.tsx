@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import imgStar from './images/star.png';
+import imgStar from '../images/star.png';
 
 import BGElement from './BGElement';
 
